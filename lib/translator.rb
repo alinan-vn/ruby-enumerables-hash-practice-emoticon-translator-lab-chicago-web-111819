@@ -1,3 +1,4 @@
+require 'pry'
 require "yaml"# require modules here
 
 def load_library(file_path)
@@ -5,6 +6,7 @@ def load_library(file_path)
   emotes = YAML.load_file(file_path)
   result = {"get_meaning" => {}, "get_emoticon" => {}}
   emotes.each do |meaning, emoticons|
+    binding.pry 
     result["get_meaning"][emoticons[1]] = meaning 
     result["get_emoticon"][emoticons[0]] = emoticons[1]
   end
